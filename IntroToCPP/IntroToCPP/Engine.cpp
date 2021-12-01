@@ -41,6 +41,12 @@ void Engine::update()
 	{
 		m_fighterOne.attack(m_fighterTwo);
 		m_fighterTwo.attack(m_fighterOne);
+		return;
+	}
+	else if (m_fighterOne.getHealth <= 0 && m_entityIndex > 3)
+	{
+		m_fighterOne = m_entities[m_entityIndex];
+		m_entityIndex++;
 	}
 }
 
