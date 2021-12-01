@@ -29,7 +29,7 @@
 		return damageTaken;
 	}
 
-	float Entity::attack(Entity entity)
+	float Entity::attack(Entity* entity)
 	{
-		return entity.takeDamage(getAttackPower());
+		return entity->takeDamage(getAttackPower());
 	}

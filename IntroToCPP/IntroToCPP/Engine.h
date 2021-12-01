@@ -14,8 +14,8 @@ public:
 private:
 	static bool m_applicationShouldClose;
 	Entity m_entities[3];
-	Entity m_fighterOne;
-	Entity m_fighterTwo;
+	Entity* m_fighterOne;
+	Entity* m_fighterTwo;
 	int m_entityCount;
 	int m_entityIndex;
 
