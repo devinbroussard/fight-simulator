@@ -8,6 +8,14 @@
 		m_defensePower = defensePower;
 	}
 
+	Entity::Entity()
+	{
+		m_icon = '\0';
+		m_health = 0;
+		m_attackPower = 0;
+		m_defensePower = 0;
+	}
+
 	float Entity::takeDamage(float damageAmount)
 	{
 		float damageTaken = damageAmount * (100 - getDefensePower()) / 100; 
@@ -17,6 +25,8 @@
 		m_health -= damageTaken;
 
 		if (m_health < 0) m_health = 0;
+
+		return damageTaken;
 	}
 
 	float Entity::attack(Entity entity)

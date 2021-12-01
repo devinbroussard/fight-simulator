@@ -4,8 +4,9 @@ class Entity
 {
 public:
 	Entity(char icon, float health, float attackPower, float defensePower);
-	char getIcon();
+	Entity();
 
+	char getIcon() { return m_icon; }
 	float getHealth() { return m_health; }
 	float getAttackPower() { return m_attackPower; }
 	float getDefensePower() { return m_defensePower; }
