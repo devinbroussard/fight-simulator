@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
 
@@ -12,7 +13,7 @@ Engine::Engine()
 void Engine::run()
 {
 	start();
-	while (getApplicationShouldClose())
+	while (!getApplicationShouldClose())
 	{
 		update();
 		draw();
@@ -62,7 +63,10 @@ void Engine::update()
 
 void Engine::draw()
 {
-	
+	m_fighterOne->printStats();
+	m_fighterTwo->printStats();
+	system("pause");
+	system("cls");
 }
 
 void Engine::end()
