@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Scene.h"
 
 class Engine
 {
@@ -9,8 +10,11 @@ public:
 
 	static bool getApplicationShouldClose() { return m_applicationShouldClose; };
 	static void setApplicationShouldCloose(bool value) { m_applicationShouldClose = value; };
+	static Scene* getCurrentScene();
+	static void setCurrentScene(int index);
 
 	void run();
+	static void addScene(Scene* scene);
 
 private:
 	static bool m_applicationShouldClose;

@@ -1,4 +1,5 @@
 #include "Entity.h";
+#include "Scene.h";
 #include <iostream>
 
 	Entity::Entity(char icon, float health, float attackPower, float defensePower)
