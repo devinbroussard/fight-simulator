@@ -4,6 +4,9 @@
 #include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
+int Engine::m_sceneCount = 0;
+int Engine::m_currentSceneIndex = 0;
+Scene** Engine::m_scenes = new Scene * [0];
 
 Engine::Engine()
 {
@@ -18,8 +21,8 @@ void Engine::run()
 	start();
 	while (!getApplicationShouldClose())
 	{
-		update();
 		draw();
+		update();
 	}
 	end();
 }
@@ -31,12 +34,10 @@ void Engine::addScene(Scene* scene)
 void Engine::start()
 {
 	StartScene* startScene = new StartScene();
-	FightScene* fightScene = new FightScene();
 
-	addScene(fightScene);
 	addScene(startScene);
 
-	m_scenes[m_currentSceneIndex]->start();
+	//m_scenes[m_currentSceneIndex]->start();
 }
 
 void Engine::update()

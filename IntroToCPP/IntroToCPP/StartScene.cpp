@@ -20,10 +20,11 @@ void StartScene::update()
 	
 	if (input == 1)
 	{
+		Engine::setCurrentScene(1);
 	}
 	else if (input == 2)
 	{
-		Engine::setCurrentScene(2);
+		Engine::setApplicationShouldClose(true);
 	}
 }
 

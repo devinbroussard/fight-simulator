@@ -9,7 +9,7 @@ public:
 	~Engine();
 
 	static bool getApplicationShouldClose() { return m_applicationShouldClose; };
-	static void setApplicationShouldCloose(bool value) { m_applicationShouldClose = value; };
+	static void setApplicationShouldClose(bool value) { m_applicationShouldClose = value; };
 	static Scene* getCurrentScene() { return m_scenes[m_currentSceneIndex]; }
 	static void setCurrentScene(int index) { m_currentSceneIndex = index; }
 
