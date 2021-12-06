@@ -29,6 +29,17 @@ void Engine::run()
 
 void Engine::addScene(Scene* scene)
 {
+	Scene** tempArray = new Scene*[m_sceneCount + 1];
+
+	int j = 0;
+	for (int i = 0; i < m_sceneCount; i++)
+	{
+		tempArray[j] = m_scenes[i];
+		j++;
+	}
+	tempArray[j] = scene;
+
+	m_scenes = tempArray;
 }
 
 void Engine::start()
@@ -37,7 +48,7 @@ void Engine::start()
 
 	addScene(startScene);
 
-	//m_scenes[m_currentSceneIndex]->start();
+	m_scenes[m_currentSceneIndex]->start();
 }
 
 void Engine::update()
@@ -47,6 +58,7 @@ void Engine::update()
 
 void Engine::draw()
 {
+	system("cls");
 	m_scenes[m_currentSceneIndex]->draw();
 }
 

@@ -8,23 +8,18 @@ void StartScene::draw()
 	std::cout << "Would you like to start the simulation?\n";
 	std::cout << "1. Yes\n";
 	std::cout << "2. No\n";
-
-	std::cout << "> ";
+	std::cout << "\n> ";
 }
-
 
 void StartScene::update()
 {
-	int input;
+	char input;
 	std::cin >> input;
 	
-	if (input == 1)
-	{
+	if (input == '1')
 		Engine::setCurrentScene(1);
-	}
-	else if (input == 2)
-	{
+	else if (input == '2')
 		Engine::setApplicationShouldClose(true);
-	}
+
 }
 

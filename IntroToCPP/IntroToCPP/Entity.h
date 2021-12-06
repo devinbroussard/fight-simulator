@@ -6,11 +6,12 @@ class Entity :
 {
 public:
 	Entity();
-	Entity(char name[], float health, float attackPower, float defensePower);
+	Entity(const char name[], float health, float attackPower, float defensePower);
 
 	float getHealth() { return m_health; }
 	float getAttackPower() { return m_attackPower; }
 	float getDefensePower() { return m_defensePower; }
+	bool isAlive() { return m_health > 0; }
 
 	float takeDamage(float damageAmount);
 	float attack(Entity* entity);

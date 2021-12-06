@@ -2,7 +2,7 @@
 #include "Actor.h";
 #include <iostream>
 
-	Entity::Entity(char name[], float health, float attackPower, float defensePower) :
+	Entity::Entity(const char name[], float health, float attackPower, float defensePower) :
 		Actor::Actor(name)
 	{
 		m_health = health;
