@@ -1,19 +1,16 @@
 #include "Engine.h"
+#include "StartScene.h"
+#include "FightScene.h"
 #include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
 
 Engine::Engine()
 {
-	m_applicationShouldClose = false;
-	m_entityCount = 0;
-	m_entityIndex = 0;
 }
 
 Engine::~Engine()
 {
-	delete m_fighterOne;
-	delete m_fighterTwo;
 }
 
 void Engine::run()
@@ -27,55 +24,33 @@ void Engine::run()
 	end();
 }
 
+void Engine::addScene(Scene* scene)
+{
+}
+
 void Engine::start()
 {
-	Entity devin = Entity('d', 100, 20, 15);
-	Entity skeleton = Entity('s', 100, 25, 5);
-	Entity troll = Entity('t', 50, 20, 0);
+	StartScene* startScene = new StartScene();
+	FightScene* fightScene = new FightScene();
 
-	m_entities[0] = devin;
-	m_entities[1] = skeleton;
-	m_entities[2] = troll;
-	m_entityCount = 3;
+	addScene(fightScene);
+	addScene(startScene);
 
-	m_fighterOne = &m_entities[0];
-	m_fighterTwo = &m_entities[1];
-	m_entityIndex = 2;
+	m_scenes[m_currentSceneIndex]->start();
 }
 
 void Engine::update()
 {
-
-	if (m_fighterOne->getHealth() <= 0 && m_entityIndex < m_entityCount)
-	{
-		m_fighterOne = &m_entities[m_entityIndex];
-		m_entityIndex++;
-	}
-	if (m_fighterTwo->getHealth() <= 0 && m_entityIndex < m_entityCount)
-	{
-		m_fighterTwo = &m_entities[m_entityIndex];
-		m_entityIndex++;
-	}
-
-	if ((m_fighterOne->getHealth() <= 0 || m_fighterTwo->getHealth() <= 0) && m_entityIndex >= m_entityCount)
-	{
-		m_applicationShouldClose = true;
-		return;
-	}
-
-	m_fighterOne->attack(m_fighterTwo);
-	m_fighterTwo->attack(m_fighterOne);
+	m_scenes[m_currentSceneIndex]->update();
 }
 
 void Engine::draw()
 {
-	m_fighterOne->printStats();
-	m_fighterTwo->printStats();
-	system("pause");
-	system("cls");
+	m_scenes[m_currentSceneIndex]->draw();
 }
 
 void Engine::end()
 {
+	m_scenes[m_currentSceneIndex]->end();
 }
 ;

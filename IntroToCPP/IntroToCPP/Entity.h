@@ -1,12 +1,13 @@
 #pragma once
+#include "Actor.h"
 
-class Entity
+class Entity :
+	public Actor
 {
 public:
-	Entity(char icon, float health, float attackPower, float defensePower);
 	Entity();
+	Entity(char name[], float health, float attackPower, float defensePower);
 
-	char getIcon() { return m_icon; }
 	float getHealth() { return m_health; }
 	float getAttackPower() { return m_attackPower; }
 	float getDefensePower() { return m_defensePower; }
@@ -16,7 +17,6 @@ public:
 	void printStats();
 
 private:
-		char m_icon;
 		float m_health;
 		float m_attackPower;
 		float m_defensePower;

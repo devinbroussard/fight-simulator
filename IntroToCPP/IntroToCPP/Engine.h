@@ -10,20 +10,17 @@ public:
 
 	static bool getApplicationShouldClose() { return m_applicationShouldClose; };
 	static void setApplicationShouldCloose(bool value) { m_applicationShouldClose = value; };
-	static Scene* getCurrentScene();
-	static void setCurrentScene(int index);
+	static Scene* getCurrentScene() { return m_scenes[m_currentSceneIndex]; }
+	static void setCurrentScene(int index) { m_currentSceneIndex = index; }
 
 	void run();
 	static void addScene(Scene* scene);
 
 private:
 	static bool m_applicationShouldClose;
-	Entity m_entities[3];
-	Entity* m_fighterOne;
-	Entity* m_fighterTwo;
-	int m_entityCount;
-	int m_entityIndex;
-	//Entity ** m_entities = new Entity * [5];
+	static Scene** m_scenes;
+	static int m_sceneCount;
+	static int m_currentSceneIndex;
 
 	void start();
 	void update();

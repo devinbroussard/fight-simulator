@@ -4,6 +4,6 @@ class FightScene :
 	public Scene
 {
 public:
-	void start() override;
+	void start() override {}
 };
 
