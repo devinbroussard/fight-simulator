@@ -10,6 +10,12 @@ Engine::Engine()
 	m_entityIndex = 0;
 }
 
+Engine::~Engine()
+{
+	delete m_fighterOne;
+	delete m_fighterTwo;
+}
+
 void Engine::run()
 {
 	start();

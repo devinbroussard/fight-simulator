@@ -6,8 +6,8 @@
 
 int main()
 {
-	Engine engine = Engine();
-	engine.run();
+	Engine* engine = new Engine();
+	engine->run();
 
 	return 0;
 }
